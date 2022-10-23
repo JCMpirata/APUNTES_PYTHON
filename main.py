@@ -35,8 +35,8 @@ print("\n")
 print("Hola")
 nombre = "Javier"
 print("Hola", nombre)
-print("Hola", nombre, sep = " ")
-print("Hola", nombre, end = ".")
+print("Hola", nombre, sep=" ")
+print("Hola", nombre, end=".")
 
 print("\n")
 
@@ -57,12 +57,12 @@ print(num3 // 3)
 # Resto division entera
 print(num1 % 2)
 # Potencia
-print(num2 ** 3)
+print(num2**3)
 
 print("\n")
 
 # Operadores logicos
-#Igual 
+#Igual
 5 == 5
 # Menor
 5 < 4
@@ -81,22 +81,43 @@ print("\n")
 color1 = input("Introduce un color: ")
 color2 = input("Introduce un color: ")
 if color1 == color2:
-  print("Son el mismo color")
+    print("Son el mismo color")
 else:
-  print("Son distintos colores")
+    print("Son distintos colores")
 
 print("\n")
 
-#Crea una lista con la frase, en la que cada letra y espacio es un elemento de la lista
+#Tupla
+ciudades = ("Madrid", "Stuttgart", "Munich", "Paris", "Florencia", "Viena")
+print(ciudades)
+#Penultimo elemento
+print(f"El penultimo elemento es: ", ciudades[4])
+#Longitud de l tupla
+print(f"La tupla mide: ", len(ciudades))
+#Busqueda en la tupla
+print(f"Queremos buscar: ", ciudades[1])
+#Añadir elemento
+#A diferencia de las listas, en las tuplas no podemos añadir elementos, ya que no existe esa posibilidad.
+#Elimanar elemento
+# A diferencia de las listas, en las tuplas no podemos eliminar elentos, ya que no existe esa posibilidad.
+
+print("\n")
+
+# LISTAS
+# Asi se declara una lista
+paises = ["España", "Alemania", "Italia", "Suiza", "Francia", "Inglaterra"]
+print(paises)
+
+#Crea una lista a partir de una frase, en la que cada letra y espacio es un elemento de la lista
 lista = list("Python is awesome")
 
 # Mostrar la lista
 print("lista = ", lista)
-# acceso a un miembro de la lista (get)
+# Imprimir un miembro de la lista
 print("lista[4] = ", lista[4])
 print("lista[-3] = ", lista[-3])
 
-# extracción de sub-lista
+# Extracción de sub-lista
 #Del 0 incluido al 5 incluido, sin incluir el 6
 print("lista[:6] = ", lista[:6])
 #Del 7 incluido hasta el 9 incluido, sin incluir el 10
@@ -156,8 +177,74 @@ lista.insert(2, "c")
 print("lista = ", lista)
 
 # Concatenación de una lista
-#Añade al final de la lista tantos elementos como quieras
+# Añade al final de la lista tantos elementos como quieras
 print("""lista.extend(["i", "j"])""")
 lista.extend(["i", "j"])
 print("lista = ", lista)
 
+print("\n")
+
+#SET
+comida = {"Tortilla", "Gazpacho", "Lentejas", "Fabada", "Cocido"}
+print(comida)
+#Longitud set
+print(len(comida))
+#Segundo elemento: No se pueden buscar elementos en los set
+#Añadir elemento:
+comida.add("Cocretas")
+print(comida)
+#Eliminar elemeneto:
+comida.remove("Cocido")
+print(comida)
+
+print("\n")
+
+# DICCIONARIOS
+
+# En los diccionarios, cada elemento esta compuesto por keys: values, en la que cada carta tiene un valor
+
+baseDeDatos = {"Nombre": "Javier", "Apellido": "Caletrio", "Pais": "España"}
+print(baseDeDatos)
+#Primer valor - clave
+print(baseDeDatos.get("Nombre"))
+print(baseDeDatos["Nombre"])
+#Longitud diccionario
+print(f"El diccionario mide: ", len(baseDeDatos.keys()))
+#Añadir elemento
+baseDeDatos["Gate"] = "D16"
+print(baseDeDatos)
+#Eliminar elemento
+del (baseDeDatos["Apellido"])
+print(baseDeDatos)
+
+# Otro ejemplo
+cartas = {
+    chr(0x1f0a1): 11,
+    chr(0x1f0a2): 2,
+    chr(0x1f0a3): 3,
+    chr(0x1f0a4): 4,
+    chr(0x1f0a5): 5,
+    chr(0x1f0a6): 6,
+    chr(0x1f0a7): 7,
+    chr(0x1f0a8): 8,
+    chr(0x1f0a9): 9,
+    chr(0x1f0aa): 10,
+    chr(0x1f0ab): 10,
+    chr(0x1f0ad): 10,
+    chr(0x1f0ae): 10,
+}
+# Imprime el diccionario, tanto los elementos de la izquierda como los de la derecha
+print(cartas)
+# El .format(" ".join(cartas.keys())) es para imprimir todos los elementos de la izquierda del diccionario que son las cartas en dibujo. El " " es para que deje un espacio entre los dibujos y el join es para que se imprima solo las  cartas, ya que sino se imprime como un diccionario
+print("Cartas: {}".format(" ".join(cartas.keys())))
+# El .format(list(cartas.values())) imprime todos los elementos de la derecha del diccionario que son los valores de las cartas. Para  hacerlo mas bonito, lo imprime en una lista
+print("Puntos: {}".format(list(cartas.values())))
+
+# Para recorrer un diccionario se utiliza .items() y luego en el .format(keys, values)
+print("1\ Iteración estándar sobre un diccionario")
+for carta, valor in cartas.items():
+    print("la carta {} vale {}".format(carta, valor))
+# Para recorrer un diccionario de forma ordenada se utiliza sorted(para ordenar) y cartas.keys para recorrer el diccionario por las keys
+print("2\ Iteración ordenada sobre un diccionario")
+for carta in sorted(cartas.keys()):
+    print("la carta {} vale {}".format(carta, cartas[carta]))
