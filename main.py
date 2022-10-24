@@ -248,3 +248,17 @@ for carta, valor in cartas.items():
 print("2\ Iteración ordenada sobre un diccionario")
 for carta in sorted(cartas.keys()):
     print("la carta {} vale {}".format(carta, cartas[carta]))
+
+# FUNCIONES
+# Las funciones son bloques de codigo, que una vez que los creas los puedes volver a utilizar tantas veces como quieras a lo largo de tu trabajo
+
+
+def agenda(nombre, apellido):
+    #Escribes todo lo que quieras
+    lista = [nombre, apellido]
+    print(lista)
+
+    return lista
+
+
+print(agenda(nombre, apellido))
